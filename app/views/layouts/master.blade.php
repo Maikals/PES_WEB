@@ -33,6 +33,8 @@
 
                 @if (Auth::check())
                 <a href="{{ URL::to('logout') }}">Logout</a>
+                @else
+                <a href="{{ URL::to('login') }}">Login</a>
                 @endif
                 </p>
             </li>
