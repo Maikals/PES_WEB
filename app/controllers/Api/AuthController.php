@@ -13,7 +13,7 @@ class AuthController extends \BaseController {
         if (\Auth::attempt($subscriptor)) {
             return 200;
         }
-        return $subscriptor;//$this->response->errorUnauthorized();
+        return 401;
     }
 
 
