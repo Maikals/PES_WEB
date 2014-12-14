@@ -38,3 +38,10 @@ Route::get('login', function()
 })->before('guest');
 Route::post('login', 'AuthController@doLogin');
 Route::get('logout', 'AuthController@doLogout');
+
+/* API */
+
+Route::api('v1', function () {
+    Route::get(     'checkapi',            function() { return 'ok'; });
+    Route::post('checkauth', 'Api\AuthController@checkAuth');
+});

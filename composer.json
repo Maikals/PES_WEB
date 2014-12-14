@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"dollar/generators": "dev-master"
+		"dollar/generators": "dev-master",
+		"dingo/api": "0.7.*"
 	},
 	"autoload": {
 		"classmap": [
