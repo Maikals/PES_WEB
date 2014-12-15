@@ -9,6 +9,7 @@ return array(
     'Administrador' => $baseDir . '/app/models/Administrador.php',
     'AdministradorsController' => $baseDir . '/app/controllers/AdministradorsController.php',
     'AdministradorsTableSeeder' => $baseDir . '/app/database/seeds/AdministradorsTableSeeder.php',
+    'Api\\AuthController' => $baseDir . '/app/controllers/Api/AuthController.php',
     'AuthController' => $baseDir . '/app/controllers/AuthController.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Compra' => $baseDir . '/app/models/Compra.php',

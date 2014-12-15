@@ -16,6 +16,8 @@ class CreateValsTable extends Migration {
 			$table->increments('id');
 			$table->date('data');
 			$table->boolean('cancelat');
+			$table->integer('idSubscriptor')->unsigned()->nullable();
+			$table->foreign('idSubscriptor')->references('id')->on('subscriptors')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
