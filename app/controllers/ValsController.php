@@ -23,6 +23,13 @@ class ValsController extends BaseController {
 	{
 		$vals = $this->val->all();
 
+		$email = "admin@mail.com";
+		$subscriptor = \Subscriptor::where('email', '=', $email)->first();
+
+
+
+        $apivals = \Val::where('data', '=', new DateTime('today'))->where('idSubscriptor', '=', $subscriptor->id)->get();
+
 		return View::make('vals.index', compact('vals'));
 	}
 
@@ -44,6 +51,7 @@ class ValsController extends BaseController {
 	public function store()
 	{
 		$input = Input::all();
+		$input['idSubscriptor'] = Auth::id();
 		$validation = Validator::make($input, Val::$rules);
 
 		if ($validation->passes())
