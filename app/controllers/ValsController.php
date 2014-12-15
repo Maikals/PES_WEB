@@ -23,13 +23,6 @@ class ValsController extends BaseController {
 	{
 		$vals = $this->val->all();
 
-		$email = "admin@mail.com";
-		$subscriptor = \Subscriptor::where('email', '=', $email)->first();
-
-
-
-        $apivals = \Val::where('data', '=', new DateTime('today'))->where('idSubscriptor', '=', $subscriptor->id)->get();
-
 		return View::make('vals.index', compact('vals'));
 	}
 
