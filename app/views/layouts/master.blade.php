@@ -3,6 +3,10 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    {{ HTML::script('jquery-1.11.1.min.js') }}
+    {{ HTML::script('jquery-ui-1.11.2/jquery-ui.min.js') }}
+    {{ HTML::style('jquery-ui-1.11.2/jquery-ui.css') }}
+    {{ HTML::style('jquery-ui-1.11.2/jquery-ui.theme.min.css') }}
 </head>
 
 <body>
@@ -59,6 +63,7 @@
     <div id="central-content" class="col-md-8">
         @yield('content')
     </div>
+    @yield('scripts')
 
 </body>
 </html>

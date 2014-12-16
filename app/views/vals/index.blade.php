@@ -10,7 +10,8 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Data</th>
+				<th>Data Inici</th>
+				<th>Data Fi</th>
 				<th>Cancelat</th>
 				<th>&nbsp;</th>
 			</tr>
@@ -19,7 +20,8 @@
 		<tbody>
 			@foreach ($vals as $val)
 				<tr>
-					<td>{{{ $val->data }}}</td>
+					<td>{{{ $val->dataInici }}}</td>
+					<td>{{{ $val->dataFi }}}</td>
 					<td>{{{ $val->cancelat }}}</td>
                     <td>
                         {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('vals.destroy', $val->id))) }}

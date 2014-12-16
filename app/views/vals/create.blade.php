@@ -19,9 +19,16 @@
 {{ Form::open(array('route' => 'vals.store', 'class' => 'form-horizontal')) }}
 
         <div class="form-group">
-            {{ Form::label('data', 'Data:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('dataInici', 'Data inici:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
-              {{ Form::text('data', Input::old('data'), array('class'=>'form-control', 'placeholder'=>'Data')) }}
+              {{ Form::text('dataInici', Input::old('dataInici'), array('id'=>'dataInici', 'class'=>'form-control', 'placeholder'=>'Data Inici')) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('dataFi', 'Data fi:', array('class'=>'col-md-2 control-label')) }}
+            <div class="col-sm-10">
+              {{ Form::text('dataFi', Input::old('dataFi'), array('id'=>'dataFi', 'class'=>'form-control', 'placeholder'=>'Data Fi')) }}
             </div>
         </div>
 
@@ -31,7 +38,6 @@
               {{ Form::checkbox('cancelat') }}
             </div>
         </div>
-
 
 <div class="form-group">
     <label class="col-sm-2 control-label">&nbsp;</label>
@@ -44,4 +50,27 @@
 
 @stop
 
+
+@section('scripts')
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $( "#dataInici" ).datepicker({
+              defaultDate: "+1w",
+              changeMonth: true,
+              numberOfMonths: 3,
+              onClose: function( selectedDate ) {
+                $( "#dataFi" ).datepicker( "option", "minDate", selectedDate );
+              }
+            });
+            $( "#dataFi" ).datepicker({
+              defaultDate: "+1w",
+              changeMonth: true,
+              numberOfMonths: 3,
+              onClose: function( selectedDate ) {
+                $( "#dataInici" ).datepicker( "option", "maxDate", selectedDate );
+              }
+            });
+        });
+    </script>
+@stop
 

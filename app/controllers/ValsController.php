@@ -45,6 +45,11 @@ class ValsController extends BaseController {
 	{
 		$input = Input::all();
 		$input['idSubscriptor'] = Auth::id();
+
+		$dataIniciTS = strtotime(Input::get('dataInici'));
+
+		//$input['dataInici'] = ;
+
 		$validation = Validator::make($input, Val::$rules);
 
 		if ($validation->passes())
