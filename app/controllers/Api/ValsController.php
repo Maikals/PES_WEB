@@ -9,13 +9,13 @@ class ValsController extends \BaseController {
         $email = \Input::get('email');
         if ($email != null) {
             $subscriptor = \Subscriptor::where('email', '=', $email)->first();
-            return \Val::where('data', '=', new \DateTime('today'))->where('idSubscriptor', '=', $subscriptor->id)->get();
-            //return $subscriptor;
+
+            return \Val::where('data', '=', date('m/d/Y'))->where('idSubscriptor', '=', $subscriptor->id)->get();
+
         } else {
             return $this->response->errorBadRequest();
         }
         
-        //return \Val::where('DATE(data)', '=', 'DATE(NOW())')->where('idSubscriptor', '=', $subscriptor->id);
     }
 
 

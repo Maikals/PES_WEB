@@ -14,9 +14,12 @@ class CreateValsTable extends Migration {
 	{
 		Schema::create('vals', function(Blueprint $table) {
 			$table->increments('id');
-			$table->timestamp('dataInici');
-			$table->timestamp('dataFi');
+			$table->timestamp('data');
 			$table->boolean('cancelat')->nullable();
+
+			$table->integer('idSubscripcio')->unsigned()->nullable();
+			$table->foreign('idSubscripcio')->references('id')->on('subscripcios')->onDelete('cascade');
+
 			$table->integer('idSubscriptor')->unsigned()->nullable();
 			$table->foreign('idSubscriptor')->references('id')->on('subscriptors')->onDelete('cascade');
 			$table->timestamps();

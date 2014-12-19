@@ -9,4 +9,5 @@ return array(
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'League\\Fractal\\' => array($vendorDir . '/league/fractal/src'),
     'Dingo\\Api\\' => array($vendorDir . '/dingo/api/src'),
+    'Barryvdh\\Debugbar\\' => array($vendorDir . '/barryvdh/laravel-debugbar/src'),
 );

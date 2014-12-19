@@ -43,26 +43,34 @@ class ValsController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::all();
-		$input['idSubscriptor'] = Auth::id();
 
-		$dataIniciTS = strtotime(Input::get('dataInici'));
+		$begin = new DateTime(Input::get('dataInici'));
+		$end = new DateTime(Input::get('dataFi'));
+		$end->modify('+1 day');
 
-		//$input['dataInici'] = ;
+		$interval = DateInterval::createFromDateString('1 day');
+		$period = new DatePeriod($begin, $interval, $end);
 
-		$validation = Validator::make($input, Val::$rules);
+		foreach ( $period as $d ) {
 
-		if ($validation->passes())
-		{
-			$this->val->create($input);
+			$val['idSubscriptor'] = Auth::id();
+			$val['data'] = $d->format('m/d/Y');
+			$val['cancelat'] = false;
 
-			return Redirect::route('vals.index');
+			$validation = Validator::make($val, Val::$rules);
+
+			if ($validation->passes())
+			{
+				$this->val->create($val);
+			} else {
+				return Redirect::route('vals.create')
+					->withInput()
+					->withErrors($validation)
+					->with('message', 'There were validation errors.');
+			}
 		}
+		return Redirect::route('vals.index');
 
-		return Redirect::route('vals.create')
-			->withInput()
-			->withErrors($validation)
-			->with('message', 'There were validation errors.');
 	}
 
 	/**

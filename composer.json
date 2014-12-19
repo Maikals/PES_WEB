@@ -7,7 +7,8 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"dollar/generators": "dev-master",
-		"dingo/api": "0.7.*"
+		"dingo/api": "0.7.*",
+		"barryvdh/laravel-debugbar": "~1.8@dev"
 	},
 	"autoload": {
 		"classmap": [

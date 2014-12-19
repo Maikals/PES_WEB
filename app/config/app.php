@@ -123,6 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Dollar\Generators\GeneratorsServiceProvider',
         'Dingo\Api\Provider\ApiServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
 	),
 
 	/*
