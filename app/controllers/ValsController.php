@@ -33,7 +33,14 @@ class ValsController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('vals.create');
+		$subscripcions = Auth::user()->subscripcions()->lists('idPublicacio');
+
+		$sf = array();
+		foreach ($subscripcions as $s) {
+			$sf[$s] = Publicacio::find($s)->nom;
+		}
+
+		return View::make('vals.create')->with('subscripcions', $sf);
 	}
 
 	/**
@@ -53,6 +60,7 @@ class ValsController extends BaseController {
 
 		foreach ( $period as $d ) {
 
+			$val['idSubscripcio'] = Input::get('idSubscripcio');
 			$val['idSubscriptor'] = Auth::id();
 			$val['data'] = $d->format('m/d/Y');
 			$val['cancelat'] = false;

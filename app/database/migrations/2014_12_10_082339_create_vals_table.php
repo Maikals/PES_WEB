@@ -22,6 +22,11 @@ class CreateValsTable extends Migration {
 
 			$table->integer('idSubscriptor')->unsigned()->nullable();
 			$table->foreign('idSubscriptor')->references('id')->on('subscriptors')->onDelete('cascade');
+
+			$table->unique(array('data', 'idSubscriptor', 'idSubscripcio'));
+
+			$table->softDeletes();
+
 			$table->timestamps();
 		});
 	}

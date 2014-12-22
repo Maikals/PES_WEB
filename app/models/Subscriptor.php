@@ -26,4 +26,9 @@ class Subscriptor extends Eloquent implements UserInterface, RemindableInterface
 		'nom' => 'required',
 		'telefonContacte' => 'required'
 	);
+
+	public function subscripcions() {
+		return $this->hasMany('Subscripcio', 'idSubscriptor');
+	}
+
 }

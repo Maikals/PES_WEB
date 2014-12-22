@@ -19,6 +19,13 @@
 {{ Form::open(array('route' => 'vals.store', 'class' => 'form-horizontal')) }}
 
         <div class="form-group">
+            {{ Form::label('idSubscripcio', 'Subscripció:', array('class'=>'col-md-2 control-label')) }}
+            <div class="col-sm-10">
+              {{ Form::select('idSubscripcio', $subscripcions, null, array('id'=>'idSubscripcio', 'class' => 'form-control')) }}
+            </div>
+        </div>
+        
+        <div class="form-group">
             {{ Form::label('dataInici', 'Data inici:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::text('dataInici', Input::old('dataInici'), array('id'=>'dataInici', 'class'=>'form-control', 'placeholder'=>'Data Inici')) }}

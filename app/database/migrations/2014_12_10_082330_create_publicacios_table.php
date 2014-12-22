@@ -20,7 +20,7 @@ class CreatePublicaciosTable extends Migration {
 			$table->string('nom');
 			$table->float('preu');
 			$table->float('preuReduit');
-			$table->timestamps();
+			$table->nullabletimestamps();
 		});
 	}
 
