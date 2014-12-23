@@ -61,10 +61,13 @@
 @section('scripts')
     <script type="text/javascript">
         $( document ).ready(function() {
+
             $( "#dataInici" ).datepicker({
               defaultDate: "+1w",
               changeMonth: true,
               numberOfMonths: 3,
+              minDate: new Date(),
+              beforeShowDay: unavailable,
               onClose: function( selectedDate ) {
                 $( "#dataFi" ).datepicker( "option", "minDate", selectedDate );
               }
@@ -73,10 +76,24 @@
               defaultDate: "+1w",
               changeMonth: true,
               numberOfMonths: 3,
+              beforeShowDay: unavailable,
               onClose: function( selectedDate ) {
                 $( "#dataInici" ).datepicker( "option", "maxDate", selectedDate );
               }
             });
+
+
+            var unavailableDates = ["12-25-2014", "12-26-2014"];
+
+            function unavailable(date) {
+                mdy = date.getMonth() + "-" + (date.getDate() + 1) + "-" + date.getFullYear();
+                if ($.inArray(mdy, unavailableDates) == -1) {
+                    return [true, ""];
+                } else {
+                    return [false, "", "Unavailable"];
+                }
+            }
+
         });
     </script>
 @stop
