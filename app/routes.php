@@ -42,8 +42,7 @@ Route::get('logout', 'AuthController@doLogout');
 /* API */
 
 Route::api('v1', function () {
-    Route::get(     'checkapi',            function() { return 'ok'; });
+    Route::get('checkapi', function() { return 'ok'; });
     Route::post('checkauth', 'Api\AuthController@checkAuth');
-
     Route::get('vals', 'Api\ValsController@index');
 });
