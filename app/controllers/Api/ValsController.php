@@ -21,5 +21,20 @@ class ValsController extends \BaseController {
         
     }
 
+    public function check()
+    {
+    	// uses param ticketId and returns information if valid and not used
+    }
+
+    public function tick()
+    {
+    	// uses param ticketId and marks ticket as used
+    }
+
+    public function verifyIsUsed()
+    {
+    	// uses param ticketId and returns if the ticket is softDeleted or cancelat
+    }
+
 
 }
