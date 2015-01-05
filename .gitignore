@@ -1,0 +1,18 @@
+# Compiled and downloaded dependencies
+/bootstrap/compiled.php
+/vendor
+/bin
+
+#Database
+/app/database/production.sqlite
+
+# Utilities
+composer.phar
+behat.phar
+.env.*.php
+.env.php
+
+# OS and IDEs
+.DS_Store
+Thumbs.db
+.idea/
