@@ -1643,12 +1643,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "6d975f632811308494f333b161496badccd33760"
+                "reference": "3309098ce4d9b5e44c04e51bf4541ea466fbe343"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/6d975f632811308494f333b161496badccd33760",
-                "reference": "6d975f632811308494f333b161496badccd33760",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/3309098ce4d9b5e44c04e51bf4541ea466fbe343",
+                "reference": "3309098ce4d9b5e44c04e51bf4541ea466fbe343",
                 "shasum": ""
             },
             "require": {
@@ -1681,7 +1681,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-03 08:01:13"
+            "time": "2015-01-05 20:58:03"
         },
         {
             "name": "symfony/routing",
@@ -1758,12 +1758,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-core.git",
-                "reference": "9203cc49594768155048b17f525a4c753e2b041e"
+                "reference": "e0d8f52dbb7d6e6a5d8df26b56bc68d829c8d519"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-core/zipball/9203cc49594768155048b17f525a4c753e2b041e",
-                "reference": "9203cc49594768155048b17f525a4c753e2b041e",
+                "url": "https://api.github.com/repos/symfony/security-core/zipball/e0d8f52dbb7d6e6a5d8df26b56bc68d829c8d519",
+                "reference": "e0d8f52dbb7d6e6a5d8df26b56bc68d829c8d519",
                 "shasum": ""
             },
             "require": {
@@ -1812,7 +1812,7 @@
             ],
             "description": "Symfony Security Component - Core Library",
             "homepage": "http://symfony.com",
-            "time": "2015-01-05 17:29:33"
+            "time": "2015-01-05 20:58:03"
         },
         {
             "name": "symfony/translation",
