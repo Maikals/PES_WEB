@@ -10,7 +10,7 @@ class AuthController extends \BaseController {
             'email' => \Input::get('email'),
             'password' => \Input::get('password')
         );
-        if (\Auth::attempt($subscriptor)) {
+        if (\Auth::validate($subscriptor)) {
             return 200;
         }
         return 401;
