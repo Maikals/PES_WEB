@@ -1,8 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
-        "This file is @generated automatically"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
     "hash": "b4d445d48959b411c9daec236c710c0e",
     "packages": [
@@ -1150,12 +1149,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "cb43f98c4c52ad8d512b067a8303b489f8f10bf8"
+                "reference": "fb1845202f6be7c24025da39b49b223f03eaf8c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/cb43f98c4c52ad8d512b067a8303b489f8f10bf8",
-                "reference": "cb43f98c4c52ad8d512b067a8303b489f8f10bf8",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/fb1845202f6be7c24025da39b49b223f03eaf8c4",
+                "reference": "fb1845202f6be7c24025da39b49b223f03eaf8c4",
                 "shasum": ""
             },
             "require": {
@@ -1196,7 +1195,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-03 15:23:51"
+            "time": "2015-01-05 17:29:33"
         },
         {
             "name": "symfony/css-selector",
@@ -1365,12 +1364,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "93fbc47507b4509602c5abf8c5a2e33096f32138"
+                "reference": "ab6a365245a48fa6502529a0be22cd6269d978f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/93fbc47507b4509602c5abf8c5a2e33096f32138",
-                "reference": "93fbc47507b4509602c5abf8c5a2e33096f32138",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/ab6a365245a48fa6502529a0be22cd6269d978f9",
+                "reference": "ab6a365245a48fa6502529a0be22cd6269d978f9",
                 "shasum": ""
             },
             "require": {
@@ -1414,7 +1413,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-03 08:02:46"
+            "time": "2015-01-05 14:29:53"
         },
         {
             "name": "symfony/filesystem",
@@ -1570,12 +1569,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "f53fc2b68d33abeff224f194fba9bf78c7bcb47b"
+                "reference": "f87d4955c3a705f4c210fa0696969a342637dcf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/f53fc2b68d33abeff224f194fba9bf78c7bcb47b",
-                "reference": "f53fc2b68d33abeff224f194fba9bf78c7bcb47b",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/f87d4955c3a705f4c210fa0696969a342637dcf4",
+                "reference": "f87d4955c3a705f4c210fa0696969a342637dcf4",
                 "shasum": ""
             },
             "require": {
@@ -1635,7 +1634,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-03 15:23:51"
+            "time": "2015-01-05 08:51:41"
         },
         {
             "name": "symfony/process",
@@ -1691,12 +1690,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Routing.git",
-                "reference": "89ca2b4530233f704ea29d527f365c00b8bb64a0"
+                "reference": "47e350dadadabdf64c8dbab499a1132c567f9411"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Routing/zipball/89ca2b4530233f704ea29d527f365c00b8bb64a0",
-                "reference": "89ca2b4530233f704ea29d527f365c00b8bb64a0",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/47e350dadadabdf64c8dbab499a1132c567f9411",
+                "reference": "47e350dadadabdf64c8dbab499a1132c567f9411",
                 "shasum": ""
             },
             "require": {
@@ -1750,7 +1749,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2015-01-03 15:23:51"
+            "time": "2015-01-05 08:51:41"
         },
         {
             "name": "symfony/security-core",
@@ -1759,12 +1758,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-core.git",
-                "reference": "354aa61663d87e4a650802ae41a442fabe1af4da"
+                "reference": "9203cc49594768155048b17f525a4c753e2b041e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-core/zipball/354aa61663d87e4a650802ae41a442fabe1af4da",
-                "reference": "354aa61663d87e4a650802ae41a442fabe1af4da",
+                "url": "https://api.github.com/repos/symfony/security-core/zipball/9203cc49594768155048b17f525a4c753e2b041e",
+                "reference": "9203cc49594768155048b17f525a4c753e2b041e",
                 "shasum": ""
             },
             "require": {
@@ -1813,7 +1812,7 @@
             ],
             "description": "Symfony Security Component - Core Library",
             "homepage": "http://symfony.com",
-            "time": "2015-01-03 14:48:25"
+            "time": "2015-01-05 17:29:33"
         },
         {
             "name": "symfony/translation",
@@ -1878,8 +1877,6 @@
     "stability-flags": {
         "dollar/generators": 20
     },
-    "prefer-stable": false,
-    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }
