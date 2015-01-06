@@ -10,12 +10,8 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Cancelada</th>
-				<th>DataCancelacio</th>
-				<th>DataFiCreacio</th>
-				<th>Modalitat</th>
-				<th>Nom</th>
-				<th>Preu</th>
+				<th>Activa</th>
+                <th>Publicacio</th>
 				<th>&nbsp;</th>
 			</tr>
 		</thead>
@@ -23,17 +19,25 @@
 		<tbody>
 			@foreach ($subscripcios as $subscripcio)
 				<tr>
-					<td>{{{ $subscripcio->cancelada }}}</td>
-					<td>{{{ $subscripcio->dataCancelacio }}}</td>
-					<td>{{{ $subscripcio->dataFiCreacio }}}</td>
-					<td>{{{ $subscripcio->modalitat }}}</td>
-					<td>{{{ $subscripcio->nom }}}</td>
-					<td>{{{ $subscripcio->preu }}}</td>
+					<td>
+                        @if ($subscripcio->cancelada == false)
+                            <span class="glyphicon glyphicon-ok"></span>
+                        @else
+                            <span class="glyphicon glyphicon-remove"></span>
+                        @endif
+                    </td>
+                    <td>{{{ $subscripcio->nomPublicacio }}}</td>
                     <td>
-                        {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('subscripcios.destroy', $subscripcio->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+
+                        @if ($subscripcio->cancelada == false)
+                        {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'GET', 'route' => array('subscripcios.disable', $subscripcio->id))) }}
+                            {{ Form::submit('Cancel·la', array('class' => 'btn btn-danger')) }}
                         {{ Form::close() }}
-                        {{ link_to_route('subscripcios.edit', 'Edit', array($subscripcio->id), array('class' => 'btn btn-info')) }}
+                        @else
+                        {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'GET', 'route' => array('subscripcios.enable', $subscripcio->id))) }}
+                            {{ Form::submit('Activa', array('class' => 'btn btn-success')) }}
+                        {{ Form::close() }}
+                        @endif
                     </td>
 				</tr>
 			@endforeach

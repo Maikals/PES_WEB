@@ -10,7 +10,12 @@
 </head>
 <body>
 	<div class="welcome">
-		<h1>Title and stuff ...</h1>
+		<h1>Gestió de Subscripcions</h1>
+        @if (Session::has('admin'))
+        <p>ADMIN</p>
+        @else
+        <p>USUARI NORMAL</p>
+        @endif
 	</div>
 </body>
 </html>

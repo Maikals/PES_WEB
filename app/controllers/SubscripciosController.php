@@ -21,7 +21,12 @@ class SubscripciosController extends BaseController {
 	 */
 	public function index()
 	{
-		$subscripcios = $this->subscripcio->all();
+		$subscripcios = $this->subscripcio->where('idSubscriptor', '=', Auth::id())->get();
+
+        foreach($subscripcios as $s) {
+            $publicacio = Publicacio::find($s->idPublicacio);
+            $s->nomPublicacio = $publicacio['nom'];
+        }
 
 		return View::make('subscripcios.index', compact('subscripcios'));
 	}
@@ -33,7 +38,14 @@ class SubscripciosController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('subscripcios.create');
+        $publicacions = Publicacio::all();
+
+        $pf = array();
+        foreach ($publicacions as $p) {
+            $pf[$p->id] = $p->nom;
+        }
+
+		return View::make('subscripcios.create')->with('publicacions', $pf);
 	}
 
 	/**
@@ -46,17 +58,29 @@ class SubscripciosController extends BaseController {
 		$input = Input::all();
 		$validation = Validator::make($input, Subscripcio::$rules);
 
-		if ($validation->passes())
-		{
-			$this->subscripcio->create($input);
+        $exists = $this->subscripcio->where('idSubscriptor', '=', Auth::id())
+                                ->where('idPublicacio', '=', Input::get('idPublicacio'))
+                                ->first();
 
-			return Redirect::route('subscripcios.index');
-		}
+        if (is_null($exists)) {
+            if ($validation->passes())
+            {
+                $this->subscripcio->create($input);
 
-		return Redirect::route('subscripcios.create')
-			->withInput()
-			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+                return Redirect::route('subscripcios.index');
+            }
+            return Redirect::route('subscripcios.create')
+                ->withInput()
+                ->withErrors($validation)
+                ->with('message', 'There were validation errors.');
+        } else {
+            return Redirect::route('subscripcios.create')
+                ->withInput()
+                ->with('message', 'Ja existeix una subscripció vigent amb aquesta publicació');
+        }
+
+
+
 	}
 
 	/**
@@ -127,5 +151,21 @@ class SubscripciosController extends BaseController {
 
 		return Redirect::route('subscripcios.index');
 	}
+
+    public function disable($id)
+    {
+        $subs = $this->subscripcio->find($id);
+        $subs->cancelada = true;
+        $subs->save();
+        return Redirect::route('subscripcios.index');
+    }
+
+    public function enable($id)
+    {
+        $subs = $this->subscripcio->find($id);
+        $subs->cancelada = false;
+        $subs->save();
+        return Redirect::route('subscripcios.index');
+    }
 
 }

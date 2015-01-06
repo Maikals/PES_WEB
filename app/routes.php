@@ -11,14 +11,13 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', array('before' => 'auth', function()
 {
 	return View::make('hello');
-});
+}));
 
 /* ROUTES PROTECTED BY AUTH/LOGIN */
 Route::group(array('before' => 'auth'), function() {
-
 	Route::resource('administradors', 'AdministradorsController');
 	Route::resource('compras', 'ComprasController');
 	Route::resource('editorials', 'EditorialsController');
@@ -26,9 +25,15 @@ Route::group(array('before' => 'auth'), function() {
 	Route::resource('quioscs', 'QuioscsController');
 	Route::resource('quiosquers', 'QuiosquersController');
 	Route::resource('subscripcios', 'SubscripciosController');
+
+    Route::get('subscripcios/enable/{id}', array('as' => 'subscripcios.enable', 'uses' => 'SubscripciosController@enable'));
+    Route::get('subscripcios/disable/{id}', array('as' => 'subscripcios.disable', 'uses' => 'SubscripciosController@disable'));
+
 	Route::resource('vals', 'ValsController');
 	Route::resource('subscriptors', 'SubscriptorsController');
-
+    Route::group(array('before' => 'admin'), function() {
+        Route::get('subscriptors', 'SubscriptorsController@index');
+    });
 });
 
 /* AUTH */

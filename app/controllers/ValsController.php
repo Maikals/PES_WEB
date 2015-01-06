@@ -21,7 +21,8 @@ class ValsController extends BaseController {
 	 */
 	public function index()
 	{
-		$vals = $this->val->all();
+		$vals = $this->val->where('idSubscriptor', '=', Auth::id())
+                        ->where('data', '>=', date('m/d/Y'))->get();
 
 		return View::make('vals.index', compact('vals'));
 	}

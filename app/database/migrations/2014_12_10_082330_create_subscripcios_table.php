@@ -28,6 +28,7 @@ class CreateSubscripciosTable extends Migration {
 			$table->integer('idSubscriptor')->unsigned()->nullable();
 			$table->foreign('idSubscriptor')->references('id')->on('subscriptors')->onDelete('cascade');
 
+            $table->unique(array('idSubscriptor', 'idPublicacio'));
 		});
 	}
 

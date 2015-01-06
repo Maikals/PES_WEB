@@ -13,6 +13,12 @@ class SubscriptorsTableSeeder extends Seeder {
                 'password' => Hash::make('admin'),
                 'adrecaEnviament' => 'Mi Casa, 101',
                 'nom' => 'Evaristo Trindamere'
+            ),
+            array(
+                'email' => 'user@mail.com',
+                'password' => Hash::make('user'),
+                'adrecaEnviament' => 'Mi Casa, 102',
+                'nom' => 'Aristides Gruff'
             )
 		);
 

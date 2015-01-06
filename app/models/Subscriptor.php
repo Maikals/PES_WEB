@@ -28,7 +28,7 @@ class Subscriptor extends Eloquent implements UserInterface, RemindableInterface
 	);
 
 	public function subscripcions() {
-		return $this->hasMany('Subscripcio', 'idSubscriptor');
+		return $this->hasMany('Subscripcio', 'idSubscriptor')->where('cancelada', '=', false);
 	}
 
 }

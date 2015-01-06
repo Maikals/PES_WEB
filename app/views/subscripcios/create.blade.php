@@ -18,48 +18,15 @@
 
 {{ Form::open(array('route' => 'subscripcios.store', 'class' => 'form-horizontal')) }}
 
-        <div class="form-group">
-            {{ Form::label('cancelada', 'Cancelada:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::checkbox('cancelada') }}
-            </div>
-        </div>
+        {{Form::hidden('cancelada', 'false')}}
+        {{Form::hidden('idSubscriptor', Auth::id())}}
 
         <div class="form-group">
-            {{ Form::label('dataCancelacio', 'DataCancelacio:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('idPublicacio', 'Publicació:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
-              {{ Form::text('dataCancelacio', Input::old('dataCancelacio'), array('class'=>'form-control', 'placeholder'=>'DataCancelacio')) }}
+                {{ Form::select('idPublicacio', $publicacions, null, array('id'=>'idPublicacio', 'class' => 'form-control')) }}
             </div>
         </div>
-
-        <div class="form-group">
-            {{ Form::label('dataFiCreacio', 'DataFiCreacio:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('dataFiCreacio', Input::old('dataFiCreacio'), array('class'=>'form-control', 'placeholder'=>'DataFiCreacio')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('modalitat', 'Modalitat:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('modalitat', Input::old('modalitat'), array('class'=>'form-control', 'placeholder'=>'Modalitat')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('nom', 'Nom:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('nom', Input::old('nom'), array('class'=>'form-control', 'placeholder'=>'Nom')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('preu', 'Preu:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('preu', Input::old('preu'), array('class'=>'form-control', 'placeholder'=>'Preu')) }}
-            </div>
-        </div>
-
 
 <div class="form-group">
     <label class="col-sm-2 control-label">&nbsp;</label>
