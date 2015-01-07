@@ -39,13 +39,6 @@
             </div>
         </div>
 
-        <div class="form-group">
-            {{ Form::label('cancelat', 'Cancelat:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::checkbox('cancelat') }}
-            </div>
-        </div>
-
 <div class="form-group">
     <label class="col-sm-2 control-label">&nbsp;</label>
     <div class="col-sm-10">
@@ -83,14 +76,25 @@
             });
 
 
-            var unavailableDates = ["12-25-2014", "12-26-2014"];
+            var unavailableDates = {
+            @foreach ($valDates as $vk => $vd)
+              {{$vk}}:[
+              @foreach ($vd as $d)
+                '{{$d}}',
+              @endforeach
+              ],
+            @endforeach
+            };
 
             function unavailable(date) {
-                mdy = date.getMonth() + "-" + (date.getDate() + 1) + "-" + date.getFullYear();
-                if ($.inArray(mdy, unavailableDates) == -1) {
-                    return [true, ""];
+                mdy = (date.getMonth()+1)>9?(date.getMonth()+1):'0'+(date.getMonth()+1);
+                mdy = mdy + "/" + (date.getDate()>9?date.getDate():'0'+date.getDate());
+                mdy = mdy + "/" + date.getFullYear();
+
+                if ($.inArray(mdy, unavailableDates[$("#idSubscripcio").val()]) == -1) {
+                    return [true];
                 } else {
-                    return [false, "", "Unavailable"];
+                    return [false];
                 }
             }
 

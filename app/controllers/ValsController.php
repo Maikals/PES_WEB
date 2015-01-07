@@ -34,14 +34,22 @@ class ValsController extends BaseController {
 	 */
 	public function create()
 	{
-		$subscripcions = Auth::user()->subscripcions()->lists('idPublicacio');
+		
+		$subs = Auth::user()->subscripcions()->get();
 
 		$sf = array();
-		foreach ($subscripcions as $s) {
-			$sf[$s] = Publicacio::find($s)->nom;
+		$vf = array();
+
+		foreach ($subs as $s) {
+			$sf[$s->id] = Publicacio::find($s->idPublicacio)->nom;
+			$vf[$s->id] = array();
+			$valDates = Val::where('idSubscripcio', '=', $s->id)->get();
+			foreach ($valDates as $vd) {
+				$vf[$s->id][] = $vd->data;
+			}
 		}
 
-		return View::make('vals.create')->with('subscripcions', $sf);
+		return View::make('vals.create')->with('subscripcions', $sf)->with('valDates', $vf);
 	}
 
 	/**
@@ -66,16 +74,23 @@ class ValsController extends BaseController {
 			$val['data'] = $d->format('m/d/Y');
 			$val['cancelat'] = false;
 
-			$validation = Validator::make($val, Val::$rules);
+			$exists = $this->val
+				->where('idSubscripcio', '=', $val['idSubscripcio'])
+				->where('idSubscriptor', '=', $val['idSubscriptor'])
+				->where('data', '=', $val['data'])
+				->first();
 
-			if ($validation->passes())
-			{
-				$this->val->create($val);
-			} else {
-				return Redirect::route('vals.create')
-					->withInput()
-					->withErrors($validation)
-					->with('message', 'There were validation errors.');
+			if (is_null($exists)) {
+				$validation = Validator::make($val, Val::$rules);
+				if ($validation->passes())
+				{
+					$this->val->create($val);
+				} else {
+					return Redirect::route('vals.create')
+						->withInput()
+						->withErrors($validation)
+						->with('message', 'There were validation errors.');
+				}
 			}
 		}
 		return Redirect::route('vals.index');
