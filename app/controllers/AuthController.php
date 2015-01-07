@@ -16,7 +16,7 @@ class AuthController extends BaseController {
         }
         return Redirect::to('login')
             ->withInput()
-            ->with('message', 'Your email/password combination was incorrect.');
+            ->with('message', 'Les dades d\'inici de sessió són incorrectes.');
     }
 
     public function doLogout()
