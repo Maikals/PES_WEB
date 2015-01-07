@@ -14,7 +14,7 @@
     <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">APP</a>
+            <a class="navbar-brand" href="{{ URL::to('/') }}">Gestió de Subscripcions</a>
 
         </div>
         <ul class="nav navbar-nav navbar-right">
@@ -25,16 +25,12 @@
                 Ha iniciat sessió com
                 <a href="{{{ route('subscriptors.show', Auth::user()->id) }}}">{{Auth::user()->nom}}</a>
                 @else
-                No has iniciat cap sessió
+                No ha iniciat cap sessió
                 @endif
                 </p>
             </li>
             <li>
-                <!--<button type="button" class="btn btn-default navbar-btn">
-                Sign out
-                </button>-->
                 <p class="navbar-text">
-
                 @if (Auth::check())
                 <a href="{{ URL::to('logout') }}">Tanca sessió</a>
                 @else
@@ -97,7 +93,9 @@
         @endif
 
         @yield('content')
+
     </div>
+    
     @yield('scripts')
 
 </body>
