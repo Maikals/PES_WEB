@@ -14,13 +14,15 @@ class CreateSubscripciosTable extends Migration {
 	{
 		Schema::create('subscripcios', function(Blueprint $table) {
 			$table->increments('id');
-			$table->boolean('cancelada');
+			$table->boolean('cancelada')->default(0);
 			$table->date('dataCancelacio')->nullable();
 			$table->date('dataFiCreacio')->nullable();
-			$table->string('modalitat')->nullable();
 			$table->string('nom')->nullable();
 			$table->float('preu')->nullable();
 			$table->nullabletimestamps();
+
+			$table->integer('idModalitat')->unsigned()->nullable();
+			$table->foreign('idModalitat')->references('id')->on('modalitats')->onDelete('cascade');
 
 			$table->integer('idPublicacio')->unsigned()->nullable();
 			$table->foreign('idPublicacio')->references('id')->on('publicacios')->onDelete('cascade');

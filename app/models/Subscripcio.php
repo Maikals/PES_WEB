@@ -4,6 +4,5 @@ class Subscripcio extends Eloquent {
 	protected $guarded = array();
 
 	public static $rules = array(
-		'cancelada' => 'required'
 	);
 }

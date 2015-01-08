@@ -56,7 +56,7 @@ class PublicaciosController extends BaseController {
 		return Redirect::route('publicacios.create')
 			->withInput()
 			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+			->with('message', 'Hi ha errors de validació.');
 	}
 
 	/**
@@ -106,13 +106,13 @@ class PublicaciosController extends BaseController {
 			$publicacio = $this->publicacio->find($id);
 			$publicacio->update($input);
 
-			return Redirect::route('publicacios.show', $id);
+			return Redirect::route('publicacios.index');
 		}
 
 		return Redirect::route('publicacios.edit', $id)
 			->withInput()
 			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+			->with('message', 'Hi ha errors de validació.');
 	}
 
 	/**
@@ -124,6 +124,11 @@ class PublicaciosController extends BaseController {
 	public function destroy($id)
 	{
 		$this->publicacio->find($id)->delete();
+
+		$suscripcions = Subscripcio::where('idPublicacio', $id)->get();
+		foreach($suscripcions as $s) {
+			$s->delete();
+		}
 
 		return Redirect::route('publicacios.index');
 	}

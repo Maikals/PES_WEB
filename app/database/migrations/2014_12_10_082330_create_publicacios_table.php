@@ -14,9 +14,9 @@ class CreatePublicaciosTable extends Migration {
 	{
 		Schema::create('publicacios', function(Blueprint $table) {
 			$table->increments('id');
-			$table->boolean('activa');
-			$table->date('dataPublicacio');
-			$table->boolean('esEnviamentDomicili');
+			$table->boolean('activa')->nullable()->default(1);
+			$table->date('dataPublicacio')->nullable();
+			$table->boolean('esEnviamentDomicili')->nullable();
 			$table->string('nom');
 			$table->float('preu');
 			$table->float('preuReduit');
