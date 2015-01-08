@@ -14,17 +14,8 @@ class Subscriptor extends Eloquent implements UserInterface, RemindableInterface
 	protected $guarded = array();
 
 	public static $rules = array(
-		'adrecaDomicili' => 'required',
 		'adrecaEnviament' => 'required',
-		'cognom1' => 'required',
-		'php artisan generate' => 'required',
-		'compteCorrent' => 'required',
-		'contrasenya' => 'required',
-		'dataNaixement' => 'required',
-		'dni' => 'required',
-		'estaBloquejat' => 'required',
-		'nom' => 'required',
-		'telefonContacte' => 'required'
+		'nom' => 'required'
 	);
 
 	public function subscripcions() {

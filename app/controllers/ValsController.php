@@ -22,7 +22,17 @@ class ValsController extends BaseController {
 	public function index()
 	{
 		$vals = $this->val->where('idSubscriptor', '=', Auth::id())
-                        ->where('data', '>=', date('m/d/Y'))->get();
+                        ->where('data', '>=', date('m/d/Y'))
+                        ->orderBy('idSubscripcio')->get();
+
+        foreach($vals as $val) {
+            $subscripcio = \Subscripcio::find($val->idSubscripcio);
+            $idPublicacio = $subscripcio->idPublicacio;
+            $publicacio = \Publicacio::find($idPublicacio);
+
+            $val->nomPublicacio = $publicacio->nom;
+            $val->idPublicacio = $idPublicacio;
+        }
 
 		return View::make('vals.index', compact('vals'));
 	}

@@ -10,18 +10,14 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Email</th>
+				<th>Adreça</th>
 				<th>Nom</th>
-				<th>Cognom 1</th>
-				<th>Cognom 2</th>
 				<th>DNI</th>
-				<th>Data Naixement</th>
 				<th>Adreça Domicili</th>
 				<th>Adreça Enviament</th>
-				<th>Compte Corrent</th>
 				<th>Telèfon Contacte</th>
 				<th>Bloquejat</th>
-				<th>&nbsp;</th>
+				<th>Accions</th>
 			</tr>
 		</thead>
 
@@ -30,13 +26,9 @@
 				<tr>
 					<td>{{{ $subscriptor->email }}}</td>
 					<td>{{{ $subscriptor->nom }}}</td>
-					<td>{{{ $subscriptor->cognom1 }}}</td>
-					<td>{{{ $subscriptor->cognom2 }}}</td>
 					<td>{{{ $subscriptor->dni }}}</td>
-					<td>{{{ $subscriptor->dataNaixement }}}</td>
 					<td>{{{ $subscriptor->adrecaDomicili }}}</td>
 					<td>{{{ $subscriptor->adrecaEnviament }}}</td>
-					<td>{{{ $subscriptor->compteCorrent }}}</td>
 					<td>{{{ $subscriptor->telefonContacte }}}</td>
 					<td>{{{ $subscriptor->estaBloquejat }}}</td>
                     <td>

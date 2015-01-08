@@ -10,7 +10,6 @@ class ValsController extends \BaseController {
         if ($email != null) {
             $subscriptor = \Subscriptor::where('email', '=', $email)->first();
 
-
             $vals = \Val::where('data', '=', date('m/d/Y'))
             			->where('idSubscriptor', '=', $subscriptor->id)
             			->where('cancelat', '=', false)

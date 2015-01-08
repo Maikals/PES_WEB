@@ -54,9 +54,9 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('contrasenya', 'Contrasenya:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('password', 'Contrasenya:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
-              {{ Form::text('contrasenya', Input::old('contrasenya'), array('class'=>'form-control', 'placeholder'=>'Contrasenya')) }}
+              {{ Form::text('password', Input::old('password'), array('class'=>'form-control', 'placeholder'=>'Contrasenya')) }}
             </div>
         </div>
 

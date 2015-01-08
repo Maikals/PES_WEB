@@ -2,17 +2,17 @@
 
 @section('content')
 
-<h1>All Subscripcios</h1>
+<h1>Subscripcions</h1>
 
-<p>{{ link_to_route('subscripcios.create', 'Add New Subscripcio', null, array('class' => 'btn btn-lg btn-success')) }}</p>
+<p>{{ link_to_route('subscripcios.create', 'Afegir nova', null, array('class' => 'btn btn-lg btn-success')) }}</p>
 
 @if ($subscripcios->count())
 	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th>Activa</th>
-                <th>Publicacio</th>
-				<th>&nbsp;</th>
+                <th>Publicació</th>
+				<th>Accions</th>
 			</tr>
 		</thead>
 
