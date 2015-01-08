@@ -25,7 +25,10 @@ class SubscripciosController extends BaseController {
 
         foreach($subscripcios as $s) {
             $publicacio = Publicacio::find($s->idPublicacio);
+            $modalitat = Modalitat::find($s->idModalitat);
+
             $s->nomPublicacio = $publicacio['nom'];
+            $s->descripcioModalitat = $modalitat['descripcio'];
         }
 
 		return View::make('subscripcios.index', compact('subscripcios'));
@@ -39,13 +42,18 @@ class SubscripciosController extends BaseController {
 	public function create()
 	{
         $publicacions = Publicacio::all();
+        $modalitats = Modalitat::all();
 
         $pf = array();
         foreach ($publicacions as $p) {
             $pf[$p->id] = $p->nom;
         }
+        $mf = array();
+        foreach ($modalitats as $m) {
+        	$mf[$m->id] = $m->descripcio;
+        }
 
-		return View::make('subscripcios.create')->with('publicacions', $pf);
+		return View::make('subscripcios.create')->with('publicacions', $pf)->with('modalitats', $mf);
 	}
 
 	/**
@@ -72,7 +80,7 @@ class SubscripciosController extends BaseController {
             return Redirect::route('subscripcios.create')
                 ->withInput()
                 ->withErrors($validation)
-                ->with('message', 'There were validation errors.');
+                ->with('message', 'Hi han hagut errors de validació');
         } else {
             return Redirect::route('subscripcios.create')
                 ->withInput()
@@ -111,7 +119,13 @@ class SubscripciosController extends BaseController {
 			return Redirect::route('subscripcios.index');
 		}
 
-		return View::make('subscripcios.edit', compact('subscripcio'));
+		$modalitats = Modalitat::all();
+        $mf = array();
+        foreach ($modalitats as $m) {
+        	$mf[$m->id] = $m->descripcio;
+        }
+
+		return View::make('subscripcios.edit', compact('subscripcio'))->with('modalitats', $mf);
 	}
 
 	/**
@@ -130,7 +144,7 @@ class SubscripciosController extends BaseController {
 			$subscripcio = $this->subscripcio->find($id);
 			$subscripcio->update($input);
 
-			return Redirect::route('subscripcios.show', $id);
+			return Redirect::route('subscripcios.index');
 		}
 
 		return Redirect::route('subscripcios.edit', $id)

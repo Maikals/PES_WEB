@@ -12,6 +12,7 @@
 			<tr>
 				<th>Activa</th>
                 <th>Publicació</th>
+                <th>Modalitat</th>
 				<th>Accions</th>
 			</tr>
 		</thead>
@@ -27,6 +28,7 @@
                         @endif
                     </td>
                     <td>{{{ $subscripcio->nomPublicacio }}}</td>
+                    <td>{{{ $subscripcio->descripcioModalitat }}}</td>
                     <td>
 
                         @if ($subscripcio->cancelada == false)
@@ -38,13 +40,16 @@
                             {{ Form::submit('Activa', array('class' => 'btn btn-success')) }}
                         {{ Form::close() }}
                         @endif
+
+                        {{ link_to_route('subscripcios.edit', 'Edita', array($subscripcio->id), array('class' => 'btn btn-info')) }}
+
                     </td>
 				</tr>
 			@endforeach
 		</tbody>
 	</table>
 @else
-	There are no subscripcios
+	No hi han subscripcions
 @endif
 
 @stop

@@ -32,7 +32,7 @@
 					<td>{{{ $publicacio->preu }}}</td>
 					<td>{{{ $publicacio->preuReduit }}}</td>
                     <td>
-                        {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('publicacios.destroy', $publicacio->id))) }}
+                        {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('publicacios.destroy', $publicacio->id), 'onsubmit' => 'return confirmDelete()')) }}
                             {{ Form::submit('Esborra', array('class' => 'btn btn-danger')) }}
                         {{ Form::close() }}
                         {{ link_to_route('publicacios.edit', 'Edita', array($publicacio->id), array('class' => 'btn btn-info')) }}
@@ -41,8 +41,20 @@
 			@endforeach
 		</tbody>
 	</table>
+	<script>
+
+	    function confirmDelete()
+	    {
+	        var x = confirm("Segur que vol eliminar la publicació? \n\nS'eliminaran tots les subscripcions relacionades.");
+	        if (x)
+	            return true;
+	        else
+	            return false;
+	    }
+
+	</script>
 @else
-	There are no publicacios
+	No hi ha cap publicació
 @endif
 
 @stop

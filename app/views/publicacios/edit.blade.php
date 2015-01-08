@@ -19,27 +19,6 @@
 {{ Form::model($publicacio, array('class' => 'form-horizontal', 'method' => 'PATCH', 'route' => array('publicacios.update', $publicacio->id))) }}
 
         <div class="form-group">
-            {{ Form::label('activa', 'Activa:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::checkbox('activa') }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('dataPublicacio', 'DataPublicacio:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('dataPublicacio', Input::old('dataPublicacio'), array('class'=>'form-control', 'placeholder'=>'DataPublicacio')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('esEnviamentDomicili', 'EsEnviamentDomicili:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::checkbox('esEnviamentDomicili') }}
-            </div>
-        </div>
-
-        <div class="form-group">
             {{ Form::label('nom', 'Nom:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::text('nom', Input::old('nom'), array('class'=>'form-control', 'placeholder'=>'Nom')) }}
@@ -64,8 +43,8 @@
 <div class="form-group">
     <label class="col-sm-2 control-label">&nbsp;</label>
     <div class="col-sm-10">
-      {{ Form::submit('Update', array('class' => 'btn btn-lg btn-primary')) }}
-      {{ link_to_route('publicacios.show', 'Cancel', $publicacio->id, array('class' => 'btn btn-lg btn-default')) }}
+      {{ Form::submit('Desa', array('class' => 'btn btn-lg btn-primary')) }}
+      {{ link_to_route('publicacios.index', 'Cancel·la', null, array('class' => 'btn btn-lg btn-default')) }}
     </div>
 </div>
 

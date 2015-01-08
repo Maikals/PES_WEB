@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-md-10 col-md-offset-2">
-        <h1>Create Publicacio</h1>
+        <h1>Nova Publicació</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -17,27 +17,6 @@
 </div>
 
 {{ Form::open(array('route' => 'publicacios.store', 'class' => 'form-horizontal')) }}
-
-        <div class="form-group">
-            {{ Form::label('activa', 'Activa:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::checkbox('activa') }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('dataPublicacio', 'DataPublicacio:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('dataPublicacio', Input::old('dataPublicacio'), array('class'=>'form-control', 'placeholder'=>'DataPublicacio')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('esEnviamentDomicili', 'EsEnviamentDomicili:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::checkbox('esEnviamentDomicili') }}
-            </div>
-        </div>
 
         <div class="form-group">
             {{ Form::label('nom', 'Nom:', array('class'=>'col-md-2 control-label')) }}
@@ -54,17 +33,16 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('preuReduit', 'PreuReduit:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('preuReduit', 'Preu Reduït:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
-              {{ Form::text('preuReduit', Input::old('preuReduit'), array('class'=>'form-control', 'placeholder'=>'PreuReduit')) }}
+              {{ Form::text('preuReduit', Input::old('preuReduit'), array('class'=>'form-control', 'placeholder'=>'Preu Reduït')) }}
             </div>
         </div>
-
 
 <div class="form-group">
     <label class="col-sm-2 control-label">&nbsp;</label>
     <div class="col-sm-10">
-      {{ Form::submit('Create', array('class' => 'btn btn-lg btn-primary')) }}
+      {{ Form::submit('Crear', array('class' => 'btn btn-lg btn-primary')) }}
     </div>
 </div>
 
