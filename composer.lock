@@ -369,12 +369,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b5f0fcdc2d5343b2f573af1499a4eb3c84c0a0f2"
+                "reference": "2b935363617b5ae36d0db0cb36b2bcd38a3b00cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b5f0fcdc2d5343b2f573af1499a4eb3c84c0a0f2",
-                "reference": "b5f0fcdc2d5343b2f573af1499a4eb3c84c0a0f2",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2b935363617b5ae36d0db0cb36b2bcd38a3b00cf",
+                "reference": "2b935363617b5ae36d0db0cb36b2bcd38a3b00cf",
                 "shasum": ""
             },
             "require": {
@@ -476,7 +476,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-01-04 19:36:48"
+            "time": "2015-01-07 20:16:31"
         },
         {
             "name": "league/fractal",
@@ -543,12 +543,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "17f651bb96692b084b3e0361d45aeb75e0a25ac0"
+                "reference": "b18a6eff04b15184375a6875ef2aa54bc5a7c9f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/17f651bb96692b084b3e0361d45aeb75e0a25ac0",
-                "reference": "17f651bb96692b084b3e0361d45aeb75e0a25ac0",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/b18a6eff04b15184375a6875ef2aa54bc5a7c9f2",
+                "reference": "b18a6eff04b15184375a6875ef2aa54bc5a7c9f2",
                 "shasum": ""
             },
             "require": {
@@ -607,7 +607,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-12-30 10:39:23"
+            "time": "2015-01-07 15:29:03"
         },
         {
             "name": "mustache/mustache",
@@ -1570,12 +1570,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "ca3124b2f0ee75d70478011ed44b5e55544094a2"
+                "reference": "10e8ad33bc6c59b538678dae3059ed48a416d605"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/ca3124b2f0ee75d70478011ed44b5e55544094a2",
-                "reference": "ca3124b2f0ee75d70478011ed44b5e55544094a2",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/10e8ad33bc6c59b538678dae3059ed48a416d605",
+                "reference": "10e8ad33bc6c59b538678dae3059ed48a416d605",
                 "shasum": ""
             },
             "require": {
@@ -1635,7 +1635,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-05 20:58:03"
+            "time": "2015-01-07 13:02:53"
         },
         {
             "name": "symfony/process",

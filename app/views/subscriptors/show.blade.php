@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Show Subscriptor</h1>
+<h1>Subscriptor</h1>
 
 <table class="table table-striped">
 	<thead>
@@ -39,13 +39,25 @@
 					    <td>{{{ $subscriptor->estaBloquejat }}}</td>
                     @endif
                     <td>
-                        {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('subscriptors.destroy', $subscriptor->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+                        {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('subscriptors.destroy', $subscriptor->id), 'onsubmit' => 'return confirmDelete()')) }}
+                            {{ Form::submit('Esborra', array('class' => 'btn btn-danger')) }}
                         {{ Form::close() }}
-                        {{ link_to_route('subscriptors.edit', 'Edit', array($subscriptor->id), array('class' => 'btn btn-info')) }}
+                        {{ link_to_route('subscriptors.edit', 'Edita', array($subscriptor->id), array('class' => 'btn btn-info')) }}
                     </td>
 		</tr>
 	</tbody>
 </table>
+<script>
+
+    function confirmDelete()
+    {
+        var x = confirm("Segur que vol donar de baixa el seu usuari?");
+        if (x)
+            return true;
+        else
+            return false;
+    }
+
+</script>
 
 @stop
