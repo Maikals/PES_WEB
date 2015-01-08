@@ -2,42 +2,96 @@
 
 @section('content')
 
-<h1>Subscriptor</h1>
+<div class="row">
+    <div class="col-md-10 col-md-offset-2">
+        <h1>Subscriptor</h1>
+
+
+    </div>
+</div>
+
+{{ Form::model($subscriptor, array('class' => 'form-horizontal', 'method' => 'PATCH', 'route' => array('subscriptors.update', $subscriptor->id))) }}
+
+<div class="form-group">
+    {{ Form::label('adrecaDomicili', 'Adreça del domicili:', array('class'=>'col-md-2 control-label')) }}
+    <div class="col-sm-10">
+        {{ Form::text('adrecaDomicili', Input::old('adrecaDomicili'), array('class'=>'form-control', 'disabled')) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ Form::label('adrecaEnviament', 'Adreça d\'enviament:', array('class'=>'col-md-2 control-label')) }}
+    <div class="col-sm-10">
+        {{ Form::text('adrecaEnviament', Input::old('adrecaEnviament'), array('class'=>'form-control', 'disabled')) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ Form::label('cognom1', 'Cognom 1:', array('class'=>'col-md-2 control-label')) }}
+    <div class="col-sm-10">
+        {{ Form::text('cognom1', Input::old('cognom1'), array('class'=>'form-control', 'disabled')) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ Form::label('cognom2', 'Cognom 2:', array('class'=>'col-md-2 control-label')) }}
+    <div class="col-sm-10">
+        {{ Form::text('cognom2', Input::old('cognom2'), array('class'=>'form-control', 'disabled')) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ Form::label('compteCorrent', 'Compte corrent:', array('class'=>'col-md-2 control-label')) }}
+    <div class="col-sm-10">
+        {{ Form::text('compteCorrent', Input::old('compteCorrent'), array('class'=>'form-control', 'disabled')) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ Form::label('dataNaixement', 'Data naixement:', array('class'=>'col-md-2 control-label')) }}
+    <div class="col-sm-10">
+        {{ Form::text('dataNaixement', Input::old('dataNaixement'), array('class'=>'form-control', 'disabled')) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ Form::label('dni', 'DNI:', array('class'=>'col-md-2 control-label')) }}
+    <div class="col-sm-10">
+        {{ Form::text('dni', Input::old('dni'), array('class'=>'form-control', 'disabled')) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ Form::label('email', 'Correu electrònic:', array('class'=>'col-md-2 control-label')) }}
+    <div class="col-sm-10">
+        {{ Form::text('email', Input::old('email'), array('class'=>'form-control', 'disabled')) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ Form::label('nom', 'Nom:', array('class'=>'col-md-2 control-label')) }}
+    <div class="col-sm-10">
+        {{ Form::text('nom', Input::old('nom'), array('class'=>'form-control', 'disabled')) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ Form::label('telefonContacte', 'Telèfon de contacte:', array('class'=>'col-md-2 control-label')) }}
+    <div class="col-sm-10">
+        {{ Form::text('telefonContacte', Input::old('telefonContacte'), array('class'=>'form-control', 'disabled')) }}
+    </div>
+</div>
+
+{{ Form::close() }}
 
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>Email</th>
-			<th>Nom</th>
-			<th>Cognom 1</th>
-			<th>Cognom 2</th>
-			<th>DNI</th>
-			<th>Data Naixement</th>
-			<th>Adreça Domicili</th>
-			<th>Adreça Enviament</th>
-			<th>Compte Corrent</th>
-			<th>Telèfon Contacte</th>
-            @if (Session::has('admin'))
-                <th>Bloquejat</th>
-            @endif
+			<th>Accions</th>
 		</tr>
 	</thead>
-
 	<tbody>
 		<tr>
-			<td>{{{ $subscriptor->email }}}</td>
-			<td>{{{ $subscriptor->nom }}}</td>
-			<td>{{{ $subscriptor->cognom1 }}}</td>
-			<td>{{{ $subscriptor->cognom2 }}}</td>
-			<td>{{{ $subscriptor->dni }}}</td>
-			<td>{{{ $subscriptor->dataNaixement }}}</td>
-			<td>{{{ $subscriptor->adrecaDomicili }}}</td>
-			<td>{{{ $subscriptor->adrecaEnviament }}}</td>
-			<td>{{{ $subscriptor->compteCorrent }}}</td>
-			<td>{{{ $subscriptor->telefonContacte }}}</td>
-            @if (Session::has('admin'))
-			    <td>{{{ $subscriptor->estaBloquejat }}}</td>
-            @endif
             <td>
                 {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('subscriptors.destroy', $subscriptor->id), 'onsubmit' => 'return confirmDelete()')) }}
                     {{ Form::submit('Esborra', array('class' => 'btn btn-danger')) }}

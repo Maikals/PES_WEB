@@ -12,11 +12,7 @@
 			<tr>
 				<th>Adreça</th>
 				<th>Nom</th>
-				<th>DNI</th>
-				<th>Adreça Domicili</th>
 				<th>Adreça Enviament</th>
-				<th>Telèfon Contacte</th>
-				<th>Bloquejat</th>
 				<th>Accions</th>
 			</tr>
 		</thead>
@@ -26,11 +22,7 @@
 				<tr>
 					<td>{{{ $subscriptor->email }}}</td>
 					<td>{{{ $subscriptor->nom }}}</td>
-					<td>{{{ $subscriptor->dni }}}</td>
-					<td>{{{ $subscriptor->adrecaDomicili }}}</td>
 					<td>{{{ $subscriptor->adrecaEnviament }}}</td>
-					<td>{{{ $subscriptor->telefonContacte }}}</td>
-					<td>{{{ $subscriptor->estaBloquejat }}}</td>
                     <td>
                         {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('subscriptors.destroy', $subscriptor->id))) }}
                             {{ Form::submit('Esborra', array('class' => 'btn btn-danger')) }}

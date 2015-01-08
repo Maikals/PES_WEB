@@ -2,13 +2,7 @@
 
 
 @section('content')
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>APP</title>
-</head>
-<body>
+
 	<div class="welcome">
 		<h1>Gestió de Subscripcions</h1>
         @if (Session::has('admin'))
@@ -39,6 +33,5 @@
 		</blockquote></div>
 	</div>
 
-</body>
-</html>
+
 @stop

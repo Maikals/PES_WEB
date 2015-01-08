@@ -31,7 +31,7 @@
 		</tbody>
 	</table>
 @else
-	There are no vals
+	No hi ha vals
 @endif
 
 @stop
